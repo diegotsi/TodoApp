@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     description: '',
+    title:'',
     list: []
 }
 
@@ -9,6 +10,12 @@ export default ( state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 description: action.payload
+            }
+        case 'TITLE_CHANGED':
+            console.log(action);
+            return {
+                ...state,
+                title: action.payload
             }
         case 'TODO_SEARCHED':
             return {

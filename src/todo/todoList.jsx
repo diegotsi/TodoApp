@@ -12,6 +12,7 @@ const TodoList = props => {
         const list = props.list || [];
         return list.map(todo => 
             <tr key={todo._id}>
+                <td className={todo.done ? 'markAsDone' : ''}>{todo.title}</td>
                 <td className={todo.done ? 'markAsDone' : ''}>{todo.description}</td>
                 <td>
                     <IconButton
@@ -41,6 +42,7 @@ const TodoList = props => {
         <table className='table'>
             <thead>
                 <tr>
+                    <th>Nome</th>
                     <th>Descrição</th>
                     <th className='tableActions'>Ações</th>
                 </tr>
