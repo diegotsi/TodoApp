@@ -1,5 +1,5 @@
 import React from 'react'
-import PageHeader from '../templates/pageHeader';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 export default props => (
     <div>
@@ -11,5 +11,4 @@ export default props => (
         <h2>Imprensa</h2>
         <p>Lorem Ipsum dolor sit amet...</p>
     </div>
-
 )

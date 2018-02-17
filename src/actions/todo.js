@@ -11,8 +11,8 @@ export const changeTitle = event => ({
     type: 'TITLE_CHANGED',
     payload: event.target.value
 })
-export const search = (description) => {
-    const search = description ? `&description_regex=/${description}/` : ''
+export const search = (title) => {
+    const search = title ? `&title__regex=/${title}/` : ''
     const request = axios.get(`${URL}?sort=-createdAt${search}`)
 
     console.log(request);

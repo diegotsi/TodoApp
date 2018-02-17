@@ -11,10 +11,10 @@
     width: 105px;
 }
 
-.todoForm {
-    padding-bottom: 60px;
-}
-
 input{
     margin-bottom: 20px;
+}
+
+.cols{
+    margin-bottom:20px;
 }

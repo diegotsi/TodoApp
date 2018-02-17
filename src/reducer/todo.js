@@ -26,7 +26,8 @@ export default ( state = INITIAL_STATE, action) => {
         case 'TODO_CLEAR': 
             return {
                 ...state,
-                description: ''
+                description: '',
+                title: ''
             }
         default:
             return state

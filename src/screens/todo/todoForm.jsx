@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Grid from '../templates/grid'
-import IconButton from '../templates/iconButton'
+import Grid from '../../components/Grid/Grid'
+import IconButton from '../../components/IconButton/IconButton'
 
-import { changeTitle, changeDescription, search, addTodo, clear } from './todoActions'
+import { changeTitle, changeDescription, search, addTodo, clear } from '../../actions/todo'
 
 class TodoForm extends Component {
     constructor(props){
@@ -18,9 +18,9 @@ class TodoForm extends Component {
     }
 
     keyHandler(e){
-        const { addTodo, search, description, clear } = this.props;
+        const { addTodo, search, title, clear } = this.props;
         if(e.key === 'Enter'){
-            e.shiftKey ? search(description) : addTodo(description)
+            e.shiftKey ? search(title) : addTodo(title)
         } else if (e.key === 'Escape'){
             clear();
         }
@@ -31,6 +31,7 @@ class TodoForm extends Component {
         const { addTodo, search, description, title } = this.props;
         return(
             <div role='form' className='todoForm'>
+                <div className='row'>
                 <Grid cols ='12 9 10'>
                     <input
                         id='title'
@@ -59,7 +60,7 @@ class TodoForm extends Component {
                     <IconButton
                         style='info'
                         icon='search'
-                        onClick={() => search(description)}
+                        onClick={() => search(title)}
                     />
                     <IconButton
                         style='default'
@@ -67,6 +68,7 @@ class TodoForm extends Component {
                         onClick={props.clear}
                     />
                 </Grid>
+                </div>
             </div>
         )
     }
