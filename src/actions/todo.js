@@ -23,6 +23,7 @@ export const changeEndDate = date => ({
     type: 'DATE_END_CHANGED',
     payload: date.format()
 })
+
 export const search = (title) => {
     const search = title ? `&title__regex=/${title}/` : ''
     const request = axios.get(`${URL}?sort=-createdAt${search}`)
@@ -40,6 +41,7 @@ export const addTodo = (description, title = '', startDate, endDate) => {
         axios.post(URL, {title, description, startDate, endDate})
             .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data}))
             .then(resp => dispatch(search()))
+            .catch(error => console.log(error))
         
     }
 }

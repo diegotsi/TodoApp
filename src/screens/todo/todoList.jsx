@@ -8,6 +8,7 @@ import { Row, ListGroup , ListGroupItemHeading, ListGroupItemText } from 'reacts
 import PageHeader from '../../components/PageHeader/PageHeader';
 import IconButton from '../../components/IconButton/IconButton';
 import ListItem from '../../components/ListItem/ListItem';
+import EmptyContent from '../../components/EmptyContent/EmptyContent';
 import Icon from '../../components/Icon/Icon';
 import Grid from '../../components/Grid/Grid'
 
@@ -15,10 +16,13 @@ import { markAsDone, markAsPending, deleteToDo } from '../../actions/todo';
 
 const TodoList = props => {
     const renderRows = () => {
-        const list = props.list || [];
+        const list = props.list;
+        if(props.list.length>0){
         return list.map(todo => 
             <Grid cols ='12 12 4 4' key={todo._id}>
-            <ListItem borderColor={!todo.done && moment(todo.endDate).format() < moment(new Date()).format() ? '#F03434' : todo.done ? '#2ECC71' : null}>
+            <ListItem
+                borderColor={!todo.done && moment(todo.endDate).format() < moment(new Date()).format() ? '#F03434' : todo.done ? '#2ECC71' : null}
+            >
 
                 <ListGroupItemHeading className={todo.done ?  'markAsDone' : ''}>{todo.title}</ListGroupItemHeading>
                 <ListGroupItemText className={todo.done ?  'markAsDone' : ''}>
@@ -63,6 +67,14 @@ const TodoList = props => {
             </ListItem>
             </Grid>
         )
+        }
+        else{
+            return(
+                <Grid cols ='12 12 12 12'>
+                <EmptyContent/>
+                </Grid>
+            )
+        }
     }
 
     return (

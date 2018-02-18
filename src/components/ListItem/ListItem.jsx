@@ -7,7 +7,7 @@ import { ListGroupItem } from 'reactstrap';
 const CustomListItem = props =>  {
     const ListItem = styled(ListGroupItem)`
        border-left:5px solid ${props.borderColor ? props.borderColor : '#ddd'};
-       margin-bottom:20px;
+       margin-bottom:20px !important;
     `
     return(
         <ListItem>
