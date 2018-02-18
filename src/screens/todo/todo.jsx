@@ -4,6 +4,7 @@ import axios from 'axios';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import TodoForm from './todoForm'
 import TodoList from './todoList'
+import NavBar from '../../components/NavBar/NavBar';
 
 const URL = 'http://localhost:3003/api/todos'
 export default class Todo extends Component {
@@ -22,6 +23,8 @@ export default class Todo extends Component {
     render(){
         return(
             <div>
+            <NavBar/>
+                <div className='container'>
                 <PageHeader name='Tarefas' small='Cadastro'/>
                 <TodoForm
                     title={this.state.title}
@@ -30,6 +33,7 @@ export default class Todo extends Component {
                 <TodoList
                     list={this.state.list}
                 />
+                </div>
             </div>
         )
     }

@@ -3,17 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import DateTime from 'react-datetime';
 import {ptBr} from 'moment/locale/pt-br';
-
+import SweetAlert from 'sweetalert-react';
+import 'sweetalert/dist/sweetalert.css';
 import Grid from '../../components/Grid/Grid';
 import IconButton from '../../components/IconButton/IconButton';
 
 
-import { changeTitle, changeDescription, changeEndDate, changeStartDate, search, addTodo, clear } from '../../actions/todo';
+import { changeTitle, changeDescription, changeEndDate, changeStartDate, search, addTodo, clear, changeAlert } from '../../actions/todo';
+
+const isEmpty = (value) => (!value || value == undefined || value == "" || value.length == 0);
 
 class TodoForm extends Component {
     constructor(props){
         super(props);
+
         this.keyHandler = this.keyHandler.bind(this);
+        this.checkFields = this.checkFields.bind(this);
     }
 
     componentWillMount() {
@@ -29,11 +34,24 @@ class TodoForm extends Component {
         }
     }
 
+    checkFields(){
+        isEmpty(this.props.title) || isEmpty(this.props.description) ? this.props.changeAlert(true, 'Ops...', 'Houve um erro ao cadastrar a tarefa, verifique os campos', 'error') 
+        : this.props.addTodo(this.props.description, this.props.title, this.props.dateStart, this.props.dateEnd); 
+    }
+
     render(){
         const props = this.props;
         console.log(props);
-        const { addTodo, search, description, title, dateEnd, dateStart } = this.props;
+        const { addTodo, search, description, title, dateEnd, dateStart, changeAlert, showAlert, titleAlert, descriptionAlert, typeAlert  } = this.props;
         return(
+            <div>
+                <SweetAlert
+                    show={props.showAlert}
+                    title={props.titleAlert}
+                    text={props.descriptionAlert}
+                    type={props.typeAlert ? props.typeAlert : 'warning'}
+                    onConfirm={() => props.changeAlert(false)}
+                />
             <div role='form' className='todoForm'>
                 <div className='row'>
                 <Grid cols ='12 9 10'>
@@ -58,7 +76,7 @@ class TodoForm extends Component {
                     <IconButton
                         style='primary'
                         icon='plus'
-                        onClick={() => addTodo(description,title,dateStart,dateEnd)}
+                        onClick={() => this.checkFields()}
                     />
                     <IconButton
                         style='info'
@@ -66,8 +84,8 @@ class TodoForm extends Component {
                         onClick={() => search(title)}
                     />
                     <IconButton
-                        style='default'
-                        icon='close'
+                        style='warning'
+                        icon='eraser'
                         onClick={props.clear}
                     />
                 </Grid>
@@ -90,6 +108,7 @@ class TodoForm extends Component {
                     </Grid>
                 </div>
             </div>
+            </div>
         )
     }
 }
@@ -99,8 +118,12 @@ const mapStateToProps = state => ({
     title: state.todo.title,
     dateStart: state.todo.dateStart,
     dateEnd: state.todo.dateEnd,
+    showAlert: state.todo.showAlert,
+    titleAlert: state.todo.titleAlert,
+    typeAlert: state.todo.typeAlert,
+    descriptionAlert: state.todo.descriptionAlert
 })
 const mapDispatchToProps = dispatch =>
-    bindActionCreators ({ changeTitle, changeDescription, changeStartDate, changeEndDate, search, addTodo, clear }, dispatch)
+    bindActionCreators ({ changeTitle, changeDescription, changeStartDate, changeEndDate, search, addTodo, clear, changeAlert }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

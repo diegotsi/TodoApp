@@ -3,6 +3,10 @@ const INITIAL_STATE = {
     title:'',
     dateStart:'',
     dateEnd: '',
+    showAlert: null,
+    titleAlert: '',
+    textAlert: '',
+    typeAlert: '',
     list: []
 }
 
@@ -34,12 +38,30 @@ export default ( state = INITIAL_STATE, action) => {
                 list: action.payload.data
             }
         case 'TODO_ADDED':
+            return{
+                ...state,
+                showAlert: true,
+                titleAlert: 'Yeahh!',
+                descriptionAlert: 'Tarefa Cadastrada com sucesso',
+                typeAlert: 'success',
+                description: '',
+                title: ''
+            }
         case 'TODO_CLEAR': 
             return {
                 ...state,
                 description: '',
                 title: ''
             }
+        case 'CHANGED_ALERT':
+            return {
+                ...state,
+                showAlert: action.show,
+                titleAlert: action.show ? action.title : '',
+                descriptionAlert: action.show ? action.description : '',
+                typeAlert: action.show ? action.typeAlert : ''
+        }
+
         default:
             return state
     }

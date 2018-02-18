@@ -68,6 +68,14 @@ export const deleteToDo = (todo) => {
     }
 }
 
+export const changeAlert = (show, title, description, typeAlert) => ({
+    type:'CHANGED_ALERT',
+    show,
+    title,
+    description,
+    typeAlert
+})
+
 export const clear = () => {
     return {
         type: 'TODO_CLEAR'

@@ -8,10 +8,29 @@ import {
     NavItem,
     NavLink,
  } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
-import './NavBar.css';
+import styled from 'styled-components';
 
-class NavBar extends Component{
+
+const NavBarBody = styled(Navbar)`
+    margin-bottom:20px;
+`
+
+const NavLinkItem = styled(Link)`
+    color:#fff !important;
+    padding-right: .5rem;
+    display: block;
+    padding: .5rem 1rem;
+    padding-left: .5rem;
+    text-decoration:none;
+`
+
+const NavBarBrandItem = styled(NavbarBrand)`
+    color:#fff !important;
+`
+class MainNavBar extends Component{
+    
     constructor(props) {
         super(props);
     
@@ -28,25 +47,25 @@ class NavBar extends Component{
     }
     render(){
         return(
-                <Navbar color={'primary'}>
+            <NavBarBody color="primary" light expand="md">
                 <div className='container'>
-                    <NavbarBrand href="/">TodoApp</NavbarBrand>
+                    <NavBarBrandItem href="/">TodoApp</NavBarBrandItem>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/todos">Tarefas</NavLink>
+                            <NavLinkItem to="/todos">Tarefas</NavLinkItem>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/about">Sobre</NavLink>
+                            <NavLinkItem to="/about">Sobre</NavLinkItem>
                         </NavItem>
                         </Nav>
                     </Collapse>
                 </div>
-                </Navbar>
+            </NavBarBody>
             
         )
     }
 }
 
-export default NavBar;
+export default MainNavBar;

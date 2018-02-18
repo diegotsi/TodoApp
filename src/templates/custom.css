@@ -11,6 +11,11 @@
     width: 105px;
 }
 
+.btn-warning {
+  color:#fff;
+  background-color: #F7CA18;
+}
+
 input{
     margin-bottom: 20px;
 }

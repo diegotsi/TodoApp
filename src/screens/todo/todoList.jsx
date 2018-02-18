@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import {ptBr} from 'moment/locale/pt-br';
 
-
 import { Row, ListGroup , ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import IconButton from '../../components/IconButton/IconButton';
@@ -25,6 +24,7 @@ const TodoList = props => {
                 <ListGroupItemText className={todo.done ?  'markAsDone' : ''}>
                     {todo.description}
                 </ListGroupItemText>
+                {todo.startDate?
                 <p className='date'>
                     <Icon
                         name='calendar-o'
@@ -32,6 +32,8 @@ const TodoList = props => {
                     />
                     Começar em  {moment(todo.startDate).format('DD/MM/YYYY')}
                 </p>
+                : null}
+                {todo.endDate?
                 <p className='date'>
                     <Icon
                         name='calendar-o'
@@ -39,6 +41,7 @@ const TodoList = props => {
                     />
                     Terminar em  {moment(todo.endDate).format('DD/MM/YYYY')}
                 </p>
+                : null}
                 <IconButton
                     style='success'
                     icon='check'
