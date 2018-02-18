@@ -41,7 +41,7 @@ export const addTodo = (description, title = '', startDate, endDate) => {
         axios.post(URL, {title, description, startDate, endDate})
             .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data}))
             .then(resp => dispatch(search()))
-            .catch(error => console.log(error))
+            .catch(error => dispatch(changeAlert(true, 'Ops...', 'Preencha o títutlo e a descrição', 'error')))
         
     }
 }

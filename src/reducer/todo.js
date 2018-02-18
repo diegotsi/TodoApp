@@ -45,13 +45,17 @@ export default ( state = INITIAL_STATE, action) => {
                 descriptionAlert: 'Tarefa Cadastrada com sucesso',
                 typeAlert: 'success',
                 description: '',
-                title: ''
+                title: '',
+                dateStart:'',
+                dateEnd: ''
             }
         case 'TODO_CLEAR': 
             return {
                 ...state,
                 description: '',
-                title: ''
+                title: '',
+                dateStart:'',
+                dateEnd: ''
             }
         case 'CHANGED_ALERT':
             return {

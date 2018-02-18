@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import DateTime from 'react-datetime';
+import moment from 'moment';
 import {ptBr} from 'moment/locale/pt-br';
 import SweetAlert from 'sweetalert-react';
 import 'sweetalert/dist/sweetalert.css';
@@ -96,6 +97,8 @@ class TodoForm extends Component {
                             open={false}
                             inputProps={{placeholder:'Data de Ínicio'}}
                             onChange={this.props.changeStartDate} locale={ptBr}
+                            onKeyUp={this.keyHandler}
+                            value={props.dateStart ? moment(props.dateStart).format('DD/MM/YYYY') : ''}
                         />
                         
                     </Grid>
@@ -104,6 +107,8 @@ class TodoForm extends Component {
                             open={false}
                             inputProps={{placeholder:'Data de Termino'}}
                             onChange={this.props.changeEndDate} locale={ptBr}
+                            onKeyUp={this.keyHandler}
+                            value={props.dateEnd ? moment(props.dateEnd).format('DD/MM/YYYY') : ''}
                         />
                     </Grid>
                 </div>

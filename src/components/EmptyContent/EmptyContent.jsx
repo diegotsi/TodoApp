@@ -40,7 +40,7 @@ const EmptyContent =  props => {
                 Use o formulário para cadastrar novas tarefas.
            </Text>
            <Text>
-           ShortCut : Enter = Adiciona nova ToDo, Shift + Enter = Pesquisa ToDo
+           ShortCut : Enter = Adiciona nova ToDo, Shift + Enter = Pesquisa ToDo, Esc = Limpa os Campos
            </Text>
            
         </BackGround>
