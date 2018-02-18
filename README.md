@@ -31,7 +31,8 @@ Inicie a api
 ```
 
 ## TodoApp - React Native
-![TodoApp](https://i.imgur.com/ykTwkIx.jpg)
+![TodoApp](https://i.imgur.com/LQCIk1f.jpg)
+
 Simples TodoApp, sem api, feito com React Native no Expo:
 Baixe o Expo Cli no seu celular, e escaneie o QRCode [desse link aqui](https://snack.expo.io/@diegotsi/todoapp)
 
