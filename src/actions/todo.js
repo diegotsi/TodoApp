@@ -11,6 +11,18 @@ export const changeTitle = event => ({
     type: 'TITLE_CHANGED',
     payload: event.target.value
 })
+
+export const changeStartDate = date => {
+    return({
+    type: 'DATE_START_CHANGED',
+    payload: date.format()
+})}
+
+
+export const changeEndDate = date => ({
+    type: 'DATE_END_CHANGED',
+    payload: date.format()
+})
 export const search = (title) => {
     const search = title ? `&title__regex=/${title}/` : ''
     const request = axios.get(`${URL}?sort=-createdAt${search}`)
@@ -23,9 +35,9 @@ export const search = (title) => {
 }
 
 
-export const addTodo = (description, title = 'Teste') => {
+export const addTodo = (description, title = '', startDate, endDate) => {
     return dispatch => {
-        axios.post(URL, {title, description})
+        axios.post(URL, {title, description, startDate, endDate})
             .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data}))
             .then(resp => dispatch(search()))
         
