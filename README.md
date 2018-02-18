@@ -30,6 +30,9 @@ Inicie a api
     npm run dev
 ```
 
+## Vídeo
+<div style="position:relative;height:0;"><iframe src="https://www.youtube.com/embed/7R0kBlQHMBM?ecver=2" width="480" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
 ## TodoApp - React Native
 ![TodoApp](https://i.imgur.com/LQCIk1f.jpg)
 
