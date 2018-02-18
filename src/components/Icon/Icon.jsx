@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-
-export default props =>  {
+const CustomIcon = props =>  {
     const Icon = styled.i`
-        color: ${props.color ? props.color : '#000'};
+        color: ${props.color};
         margin-right: 5px;
         font-size:16px;
     `
@@ -12,3 +12,14 @@ export default props =>  {
         <Icon className={`fa fa-${props.name}`}></Icon>
     )
 }
+
+CustomIcon.propTypes = {
+    color: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+}
+
+CustomIcon.defaultProps = {
+    color: '#000'
+}
+
+export default CustomIcon;

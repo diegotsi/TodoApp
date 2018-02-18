@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { ListGroupItem } from 'reactstrap';
 
 
-export default props =>  {
+const CustomListItem = props =>  {
     const ListItem = styled(ListGroupItem)`
        border-left:5px solid ${props.borderColor ? props.borderColor : '#ddd'};
        margin-bottom:20px;
@@ -14,3 +15,9 @@ export default props =>  {
         </ListItem>
     )
 }
+
+CustomListItem.propTypes = {
+    borderColor: PropTypes.string,
+}
+  
+export default CustomListItem;
