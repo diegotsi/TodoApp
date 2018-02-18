@@ -30,4 +30,9 @@ Inicie a api
     npm run dev
 ```
 
+## TodoApp - React Native
+![TodoApp](https://i.imgur.com/9XipSGI.png)
+Simples TodoApp, sem api, feito com React Native no Expo:
+Baixe o Expo Cli no seu celular, e escanei o QRCode desse link [aqui](https://snack.expo.io/@diegotsi/todoapp)
+
 
