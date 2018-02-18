@@ -20,6 +20,10 @@ input{
     margin-bottom: 20px;
 }
 
+.col-xs-12 .btn{
+  margin-bottom:20px;
+}
+
 
 .date{
   color: #bbb;

@@ -7,8 +7,7 @@ export default props => (
         <NavBar/>
         <div className='container'>
         <PageHeader name='Sobre' small='Nós'/>
-        <h2>Nossa história</h2>
-        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Feito por <a href='http://diegotsi.github.io' target='_blank'>Diego Oliveira</a></p>
         </div>
     </div>
 )

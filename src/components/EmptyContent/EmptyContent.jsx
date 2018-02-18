@@ -13,13 +13,16 @@ const EmptyContent =  props => {
         min-height:300px;
         flex-flow: row wrap;
         flex-direction: column;
+        padding:10px;
     `
     const Title = styled.h3`
         color: #888;
         margin-bottom:30px;
+        text-align:center;
     `
     const Text = styled.p`
         color: #888;
+        text-align:center;
        
     `
   
