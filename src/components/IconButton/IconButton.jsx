@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 import If from './if';
 
-export default props =>  (
+const IconButton =  props =>  (
     <If test={!props.hide}>
         <button
             className={`btn btn-${props.style}`}
@@ -13,3 +14,14 @@ export default props =>  (
     </If>
 
 )
+
+IconButton.propTypes = {
+    hide: PropTypes.bool,
+    onClick: PropTypes.func
+}
+
+IconButton.defaultProps = {
+    hide: false,
+}
+
+export default IconButton;

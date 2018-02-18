@@ -9,7 +9,7 @@ import {
     NavLink,
  } from 'reactstrap';
 import {Link} from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
@@ -66,6 +66,10 @@ class MainNavBar extends Component{
             
         )
     }
+}
+
+MainNavBar.propTypes = {
+    color: PropTypes.string,
 }
 
 export default MainNavBar;

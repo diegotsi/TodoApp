@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import TitlePage from './TitlePage';
 import SmallTitle from './SmallTitle';
 
-export default props => {
+const PageHeader =  props => {
     const Header = styled.header`
         margin-bottom:10px;
     `
@@ -17,3 +17,10 @@ export default props => {
         </Header>
 )
 }
+
+PageHeader.propTypes = {
+    name: PropTypes.string.isRequired,
+    small: PropTypes.string.isRequired
+}
+
+export default PageHeader;
